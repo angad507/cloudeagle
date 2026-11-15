@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111c2f" />
+  <title>AI Governance Dashboard · Northstar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Primary navigation">
+    <div class="brand"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>CloudEagle.ai</b><small>AI GOVERNANCE</small></span></div>
+    <div class="nav-heading">WORKSPACE</div>
+    <nav class="nav-list"><button class="nav-link selected" data-nav="Overview"><span class="nav-icon">◫</span>Overview</button></nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar"><div class="crumb">Workspace <span>›</span> <b id="activeNav">Overview</b></div><div class="top-right"><div class="data-status"><i></i> Data refreshed 8 min ago</div><button class="icon-button" id="helpButton" aria-label="Help">?</button><button class="avatar top-avatar" aria-label="User profile">AG</button></div></header>
+    <div class="content-wrap">
+      <section class="page-heading"><div><div class="eyebrow">NOVEMBER 2026 <span class="live-dot"></span> LIVE OVERVIEW</div><h1>AI Governance Dashboard</h1><p>Monitor AI adoption, spending and governance across your organization.</p></div><div class="heading-controls"><select id="dateSelect" aria-label="Date range"><option value="November 2026">November 2026</option><option value="October 2026">October 2026</option><option value="September 2026">September 2026</option></select><button class="filter-button" id="filtersButton">☷ <span>Filters</span></button></div></section>
+
+      <section class="kpi-grid" aria-label="Key indicators">
+        <article class="kpi-card spend-card"><div class="kpi-heading"><span>Monthly AI Spend <button class="info" title="Invoice and subscription spend recorded month-to-date. API token consumption is tracked separately when vendor usage data is available.">i</button></span><span class="kpi-icon icon-blue">₹</span></div><div class="kpi-value">₹8.4 <small>lakh</small></div><div class="kpi-meta"><span>of ₹12 lakh budget</span><span class="utilization">70% used</span></div><div class="progress-track"><i style="width:70%"></i></div><div class="forecast"><span class="forecast-icon">↗</span><span><b>Projected month-end spend</b><small>Illustrative forecast based on current run rate</small></span><strong>₹13.5L</strong></div><div class="over-budget"><span>⚠</span> Forecast to exceed budget by <b>₹1.5 lakh</b></div></article>
+        <article class="kpi-card"><div class="kpi-heading"><span>AI Applications <button class="info" title="Applications identified across organization usage and vendor records.">i</button></span><span class="kpi-icon icon-purple">▦</span></div><div class="kpi-value">24</div><div class="kpi-meta split-meta"><span><i class="mini-dot green-dot"></i>18 approved</span><span><i class="mini-dot amber-dot"></i>6 unapproved</span></div><div class="kpi-note"><span class="trend-up">↑ 3</span> discovered this month</div></article>
+        <article class="kpi-card"><div class="kpi-heading"><span>Active AI Users <button class="info" title="Employees with observed or reported AI application activity this month. Application usage does not equal API token consumption.">i</button></span><span class="kpi-icon icon-teal">♙</span></div><div class="kpi-value">342 <small>employees</small></div><div class="kpi-meta"><span>Across 8 departments</span><span class="avatar-stack"><i>EN</i><i>MK</i><i>SL</i><i>+5</i></span></div><div class="kpi-note"><span class="trend-up">↑ 12.4%</span> vs. last month</div></article>
+        <article class="kpi-card"><div class="kpi-heading"><span>Policy Violations <button class="info" title="Illustrative detections that may need human review. Detection coverage depends on connected identity, browser and CASB sources.">i</button></span><span class="kpi-icon icon-amber">◇</span></div><div class="kpi-value">12 <small>detected</small></div><div class="kpi-meta"><span>Require review</span><span class="risk-tag">4 high priority</span></div><div class="kpi-note"><span class="trend-warn">6 applications</span> lack approval</div></article>
+      </section>
+
+      <section class="charts-grid" aria-label="AI governance charts">
+        <article class="panel spend-panel"><div class="panel-heading"><div><h2>Spend vs. department budget <button class="info" title="Actual monthly spend compared with department budget allocation. Hover a bar for the exact amount.">i</button></h2><p>Monthly AI expenditure across your organization</p></div></div><div class="chart-legend"><span><i class="legend-swatch actual"></i>Actual spend</span><span><i class="legend-swatch budget"></i>Allocated budget</span><span class="limit-key"><i></i>Near limit</span></div><div class="bar-chart" id="barChart" role="img" aria-label="Grouped bar chart comparing department spend and budget"></div><div class="chart-caption"><span>Budget utilization</span><span class="utilization-pills"><b class="near">Engineering 87.5%</b><b class="near">Marketing 90%</b><b>Sales 60%</b><b>Operations 47.5%</b></span></div></article>
+        <article class="panel usage-panel"><div class="panel-heading"><div><h2>AI application usage <button class="info" title="Active users by application, based on illustrative observed and reported usage. One employee may use multiple applications.">i</button></h2><p>Employees by primary AI application</p></div></div><div class="donut-area"><div class="donut-chart" id="usageDonut" role="img" aria-label="Donut chart of application active users"><div class="donut-center"><strong>342</strong><span>active users</span></div></div><div class="usage-legend" id="usageLegend"></div></div><div class="chart-footnote">Usage indicates application activity, not API token consumption.</div></article>
+        <article class="panel governance-panel"><div class="panel-heading"><div><h2>Application governance <button class="info" title="Approval status from the illustrative application inventory. Unapproved does not by itself mean unsafe; review before restricting.">i</button></h2><p>Approval coverage across identified AI tools</p></div></div><div class="governance-visual"><div class="stacked-bar" role="img" aria-label="18 approved and 6 unapproved applications"><div class="approved-segment" title="Approved: 18 applications (75%)"><span>18</span></div><div class="unapproved-segment" title="Unapproved: 6 applications (25%)"><span>6</span></div></div><div class="stacked-labels"><span>0</span><span>24 applications</span></div><div class="governance-key"><div><i class="legend-swatch approved"></i><span>Approved</span><strong>18</strong><small>75% of inventory</small></div><div><i class="legend-swatch unapproved"></i><span>Unapproved</span><strong>6</strong><small>25% of inventory</small></div></div></div><div class="governance-footer"><span class="shield">✓</span><span><b>75% of applications governed</b><small>Review unapproved tools to improve coverage.</small></span></div></article>
+      </section>
+
+      <section class="attention-panel"><div class="attention-heading"><div class="attention-title"><span class="attention-icon">!</span><div><h2>Needs Attention</h2><p>Two items may need a closer look</p></div></div><span class="attention-count">2 items</span></div><div class="alert-list"><article class="alert-row"><span class="alert-marker amber-marker">↗</span><div class="alert-copy"><div><b>Engineering AI budget is approaching its limit</b><span class="severity severity-amber">BUDGET WATCH</span></div><p>₹3.5L of ₹4L used · <strong>87.5% utilization</strong></p></div><span class="alert-action">Review spending before the monthly limit is reached.</span><button class="arrow-button" data-alert="Engineering budget">→</button></article><article class="alert-row"><span class="alert-marker red-marker">◇</span><div class="alert-copy"><div><b>Unapproved AI applications detected</b><span class="severity severity-red">REVIEW NEEDED</span></div><p><strong>6 applications</strong> are being used without verified approval.</p></div><span class="alert-action">Review these applications and their approval status.</span><button class="arrow-button" data-alert="Unapproved AI applications">→</button></article></div></section>
+      <footer class="page-footer"><span>Illustrative data · November 2026</span><span>Application activity and API usage are distinct data signals.</span></footer>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="popover" id="popover" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
